@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xforg_flutter_demo/Tabbar/TabBarBottomPageWidget.dart';
+import 'package:xforg_flutter_demo/Tabbar/TabBarTopPageWidget.dart';
 
 void main() => runApp(new MyApp());
 
@@ -33,6 +34,12 @@ class MainPage extends StatelessWidget{
            },
             color: Colors.blue,
             child: new Text("Bottom tabBar"),
+          ),
+          new FlatButton(onPressed: (){
+            Navigator.push(context, new MaterialPageRoute(builder: (context) => new TabBarTopPageWidget()));
+          },
+            color: Colors.blue,
+            child: new Text("Top tabBar"),
           ),
         ],
       ),

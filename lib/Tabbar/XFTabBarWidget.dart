@@ -98,6 +98,7 @@ class _XFTabBarState extends State<XFTabBarWidge> with SingleTickerProviderState
         appBar: new AppBar(
           backgroundColor: _backGroundColor,
           title: _title,
+          ///顶部tab是放在 AppBar 的 bottom 中，也就是标题栏之下
           bottom: new TabBar(tabs: _tabItems,
           isScrollable: true,
             controller: _tabController,
@@ -129,6 +130,7 @@ class _XFTabBarState extends State<XFTabBarWidge> with SingleTickerProviderState
           _tabController.animateTo(index);
         },
       ),
+      ///底部tab是放在了 Scaffold 的 bottomNavigationBar 中
       bottomNavigationBar: new Material(
         color: _backGroundColor,
         child: new TabBar(tabs: _tabItems,
