@@ -5,8 +5,14 @@ import 'package:xforg_flutter_demo/PullLoad/PullToRefreshWidge.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullOnLoadingWidge.dart';
 import 'package:xforg_flutter_demo/SplashScreen/SplashScreen.dart';
 import 'package:xforg_flutter_demo/Spinkit/SpinkitDemoPage.dart';
+import 'package:xforg_flutter_demo/EventBus/screens/FirstScreen.dart';
+import 'package:xforg_flutter_demo/EventBus/tools/bus.dart';
+import 'package:xforg_flutter_demo/EventBus/events/Count_event.dart';
 
-void main() => runApp(new MyApp());
+void main(){
+  runApp(new MyApp());
+  behaviorBus.fire(CountEvent(0));
+}
 
 class MyApp extends StatelessWidget {
 
@@ -61,11 +67,17 @@ class MainPage extends StatelessWidget{
           },
               color: Colors.blue,
               child: new Text("SplashScreen")),
+
           new FlatButton(onPressed: (){
             Navigator.push(context, new MaterialPageRoute(builder: (context) => new SpinkitPage()));
           },
               color: Colors.blue,
               child: new Text("SpinkitDemo")),
+          new FlatButton(onPressed: (){
+            Navigator.push(context, new MaterialPageRoute(builder: (context) => new FirstScreen()));
+          },
+              color: Colors.blue,
+              child: new Text("EventBus")),
         ],
       ),
     );
