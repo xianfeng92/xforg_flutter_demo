@@ -44,12 +44,13 @@ class _TabBarBottomPageWidgetState extends State<TabBarBottomPageWidget> {
   @override
   Widget build(BuildContext context) {
     return new XFTabBarWidge(type: XFTabBarWidge.BOTTOM_TAB,
-    tabItems: _renderTab(),
-    tavViews: _renderPage(),
-    topPageControl: topPageControl,
-    backgroundColor: Colors.blue,
-    indicatorColor: Colors.redAccent,
-    title: new Text("XFTabBarWidge"),
+     tabItems: _renderTab(),
+     tavViews: _renderPage(),
+     topPageControl: topPageControl,
+     backgroundColor: Colors.blue,
+     indicatorColor: Colors.redAccent,
+     title: new Text("XFTabBarWidge"),
     );
   }
+
 }

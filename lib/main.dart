@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:xforg_flutter_demo/Tabbar/TabBarBottomPageWidget.dart';
 import 'package:xforg_flutter_demo/Tabbar/TabBarTopPageWidget.dart';
+import 'package:xforg_flutter_demo/PullLoad/PullToRefreshWidge.dart';
+import 'package:xforg_flutter_demo/PullLoad/PullOnLoadingWidge.dart';
 
 void main() => runApp(new MyApp());
 
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: "Flutter TabBar Demo",
+      title: "Flutter Demo",
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -33,14 +35,25 @@ class MainPage extends StatelessWidget{
            Navigator.push(context,new MaterialPageRoute(builder:(context) => new TabBarBottomPageWidget()));
            },
             color: Colors.blue,
-            child: new Text("Bottom tabBar"),
+            child: new Text("BotTabBar"),
           ),
           new FlatButton(onPressed: (){
             Navigator.push(context, new MaterialPageRoute(builder: (context) => new TabBarTopPageWidget()));
           },
             color: Colors.blue,
-            child: new Text("Top tabBar"),
+            child: new Text("TopTabBar"),
           ),
+          new FlatButton(onPressed: (){
+            Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullToRefreshPage()));
+          },
+              color: Colors.blue,
+              child: new Text("PullToLoad")
+          ),
+          new FlatButton(onPressed: (){
+            Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullOnLoadingPage()));
+          }, 
+              color: Colors.blue,
+              child: new Text("PullOnLoad"))
         ],
       ),
     );
