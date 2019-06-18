@@ -3,6 +3,7 @@ import 'package:xforg_flutter_demo/Tabbar/TabBarBottomPageWidget.dart';
 import 'package:xforg_flutter_demo/Tabbar/TabBarTopPageWidget.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullToRefreshWidge.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullOnLoadingWidge.dart';
+import 'package:xforg_flutter_demo/SplashScreen/SplashScreen.dart';
 
 void main() => runApp(new MyApp());
 
@@ -53,7 +54,12 @@ class MainPage extends StatelessWidget{
             Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullOnLoadingPage()));
           }, 
               color: Colors.blue,
-              child: new Text("PullOnLoad"))
+              child: new Text("PullOnLoad")),
+          new FlatButton(onPressed: (){
+            Navigator.push(context, new MaterialPageRoute(builder: (context) => new SplashScreen()));
+          },
+              color: Colors.blue,
+              child: new Text("SplashScreen")),
         ],
       ),
     );
