@@ -4,6 +4,7 @@ import 'package:xforg_flutter_demo/Tabbar/TabBarTopPageWidget.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullToRefreshWidge.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullOnLoadingWidge.dart';
 import 'package:xforg_flutter_demo/SplashScreen/SplashScreen.dart';
+import 'package:xforg_flutter_demo/Spinkit/SpinkitDemoPage.dart';
 
 void main() => runApp(new MyApp());
 
@@ -60,6 +61,11 @@ class MainPage extends StatelessWidget{
           },
               color: Colors.blue,
               child: new Text("SplashScreen")),
+          new FlatButton(onPressed: (){
+            Navigator.push(context, new MaterialPageRoute(builder: (context) => new SpinkitPage()));
+          },
+              color: Colors.blue,
+              child: new Text("SpinkitDemo")),
         ],
       ),
     );
