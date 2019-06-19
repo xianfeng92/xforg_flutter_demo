@@ -9,22 +9,34 @@ import 'package:xforg_flutter_demo/EventBus/screens/FirstScreen.dart';
 import 'package:xforg_flutter_demo/EventBus/tools/bus.dart';
 import 'package:xforg_flutter_demo/EventBus/events/Count_event.dart';
 import 'package:xforg_flutter_demo/SearchBar/SearchBarPage.dart';
+import 'package:xforg_flutter_demo/redux/TopScreen.dart';
+import 'package:redux/redux.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:xforg_flutter_demo/redux/states/count_state.dart';
 
 void main(){
-  runApp(new MyApp());
+  final store = Store<CountState>(reducer,initialState: CountState.initState());
+  runApp(new MyApp(store));
   behaviorBus.fire(CountEvent(0));
 }
 
 class MyApp extends StatelessWidget {
 
+  final Store<CountState> store;
+
+  MyApp(this.store);
+
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: "Flutter Demo",
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
+    return StoreProvider<CountState>(
+      store:store,
+      child:  new MaterialApp(
+        title: "Flutter Demo",
+        theme: new ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: new MainPage(),
       ),
-      home: new MainPage(),
     );
   }
 }
@@ -84,6 +96,11 @@ class MainPage extends StatelessWidget{
           },
               color: Colors.blue,
               child: new Text("SearchBarDemo")),
+          new FlatButton(onPressed: (){
+            Navigator.push(context, new MaterialPageRoute(builder: (context) => new TopScreen()));
+          },
+              color: Colors.blue,
+              child: new Text("ReduxDemo")),
         ],
       ),
     );

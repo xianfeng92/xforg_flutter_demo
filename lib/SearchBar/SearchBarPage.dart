@@ -44,7 +44,7 @@ class SearchBarDelegate extends SearchDelegate<String>{
         width: 100,
         height: 100,
         child: new Card(
-          color: Colors.yellow,
+          color: Colors.blue,
           child: new Center(
             child: Text(query),
           ),
