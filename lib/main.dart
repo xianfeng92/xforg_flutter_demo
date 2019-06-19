@@ -6,37 +6,36 @@ import 'package:xforg_flutter_demo/PullLoad/PullOnLoadingWidge.dart';
 import 'package:xforg_flutter_demo/SplashScreen/SplashScreen.dart';
 import 'package:xforg_flutter_demo/Spinkit/SpinkitDemoPage.dart';
 import 'package:xforg_flutter_demo/EventBus/screens/FirstScreen.dart';
-import 'package:xforg_flutter_demo/EventBus/tools/bus.dart';
-import 'package:xforg_flutter_demo/EventBus/events/Count_event.dart';
 import 'package:xforg_flutter_demo/SearchBar/SearchBarPage.dart';
 import 'package:xforg_flutter_demo/redux/TopScreen.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:xforg_flutter_demo/redux/states/count_state.dart';
+import 'package:xforg_flutter_demo/HomeDrawer/HomeDrawerPage.dart';
+import 'package:xforg_flutter_demo/HomeDrawer/redux/xforg_state.dart';
+import 'package:xforg_flutter_demo/Common/Utils/common_utils.dart';
+import 'package:xforg_flutter_demo/Common/Style/xforg_style.dart';
 
 void main(){
-  final store = Store<CountState>(reducer,initialState: CountState.initState());
+  final store = Store<XFORGState>(appReducer,initialState:new XFORGState(CommonUtils.getThemeData(XFORGColors.primarySwatch)));
   runApp(new MyApp(store));
-  behaviorBus.fire(CountEvent(0));
 }
 
 class MyApp extends StatelessWidget {
 
-  final Store<CountState> store;
+  final Store<XFORGState> store;
 
   MyApp(this.store);
 
   @override
   Widget build(BuildContext context) {
-    return StoreProvider<CountState>(
+    return StoreProvider<XFORGState>(
       store:store,
-      child:  new MaterialApp(
-        title: "Flutter Demo",
-        theme: new ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: new MainPage(),
-      ),
+      child: new StoreBuilder<XFORGState>(builder: (context,store){
+        return new MaterialApp(
+          theme: store.state.themeData,
+          home: new MainPage(),
+        );
+      })
     );
   }
 }
@@ -102,6 +101,11 @@ class MainPage extends StatelessWidget{
               },
                   color: Colors.blue,
                   child: new Text("ReduxDemo")),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new HomeDrawerPage()));
+              },
+                  color: Colors.blue,
+                  child: new Text("changeTheme")),
             ],
           ),
           onWillPop: (){
