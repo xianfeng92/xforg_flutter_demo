@@ -50,59 +50,78 @@ class MainPage extends StatelessWidget{
       appBar: new AppBar(
         title: new Text("Flutter Demo TabBar"),
       ),
-      body: new Column(
-        children: <Widget>[
-          new FlatButton(onPressed:(){
-           Navigator.push(context,new MaterialPageRoute(builder:(context) => new TabBarBottomPageWidget()));
-           },
-            color: Colors.blue,
-            child: new Text("BotTabBar"),
-          ),
-          new FlatButton(onPressed: (){
-            Navigator.push(context, new MaterialPageRoute(builder: (context) => new TabBarTopPageWidget()));
-          },
-            color: Colors.blue,
-            child: new Text("TopTabBar"),
-          ),
-          new FlatButton(onPressed: (){
-            Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullToRefreshPage()));
-          },
-              color: Colors.blue,
-              child: new Text("PullToLoad")
-          ),
-          new FlatButton(onPressed: (){
-            Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullOnLoadingPage()));
-          }, 
-              color: Colors.blue,
-              child: new Text("PullOnLoad")),
-          new FlatButton(onPressed: (){
-            Navigator.push(context, new MaterialPageRoute(builder: (context) => new SplashScreen()));
-          },
-              color: Colors.blue,
-              child: new Text("SplashScreen")),
+      body: new WillPopScope(
+          child:       new Column(
+            children: <Widget>[
+              new FlatButton(onPressed:(){
+                Navigator.push(context,new MaterialPageRoute(builder:(context) => new TabBarBottomPageWidget()));
+              },
+                color: Colors.blue,
+                child: new Text("BotTabBar"),
+              ),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new TabBarTopPageWidget()));
+              },
+                color: Colors.blue,
+                child: new Text("TopTabBar"),
+              ),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullToRefreshPage()));
+              },
+                  color: Colors.blue,
+                  child: new Text("PullToLoad")
+              ),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullOnLoadingPage()));
+              },
+                  color: Colors.blue,
+                  child: new Text("PullOnLoad")),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new SplashScreen()));
+              },
+                  color: Colors.blue,
+                  child: new Text("SplashScreen")),
 
-          new FlatButton(onPressed: (){
-            Navigator.push(context, new MaterialPageRoute(builder: (context) => new SpinkitPage()));
-          },
-              color: Colors.blue,
-              child: new Text("SpinkitDemo")),
-          new FlatButton(onPressed: (){
-            Navigator.push(context, new MaterialPageRoute(builder: (context) => new FirstScreen()));
-          },
-              color: Colors.blue,
-              child: new Text("EventBusDemo")),
-          new FlatButton(onPressed: (){
-            Navigator.push(context, new MaterialPageRoute(builder: (context) => new SearchBarPage()));
-          },
-              color: Colors.blue,
-              child: new Text("SearchBarDemo")),
-          new FlatButton(onPressed: (){
-            Navigator.push(context, new MaterialPageRoute(builder: (context) => new TopScreen()));
-          },
-              color: Colors.blue,
-              child: new Text("ReduxDemo")),
-        ],
-      ),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new SpinkitPage()));
+              },
+                  color: Colors.blue,
+                  child: new Text("SpinkitDemo")),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new FirstScreen()));
+              },
+                  color: Colors.blue,
+                  child: new Text("EventBusDemo")),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new SearchBarPage()));
+              },
+                  color: Colors.blue,
+                  child: new Text("SearchBarDemo")),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new TopScreen()));
+              },
+                  color: Colors.blue,
+                  child: new Text("ReduxDemo")),
+            ],
+          ),
+          onWillPop: (){
+            return _dialogExitApp(context);
+          })
     );
   }
+
+
+  Future<bool> _dialogExitApp(BuildContext context){
+    return showDialog(
+        context: context,
+      builder: (context) => new AlertDialog(
+        content: new Text("是否退出？"),
+        actions: <Widget>[
+          new FlatButton(onPressed:() => Navigator.of(context).pop(false), child: new Text('取消')),
+          new FlatButton(onPressed: () => Navigator.of(context).pop(true), child: new Text("确定"))
+        ],
+      )
+    );
+  }
+
 }
