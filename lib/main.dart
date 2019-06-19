@@ -8,6 +8,7 @@ import 'package:xforg_flutter_demo/Spinkit/SpinkitDemoPage.dart';
 import 'package:xforg_flutter_demo/EventBus/screens/FirstScreen.dart';
 import 'package:xforg_flutter_demo/EventBus/tools/bus.dart';
 import 'package:xforg_flutter_demo/EventBus/events/Count_event.dart';
+import 'package:xforg_flutter_demo/SearchBar/SearchBarPage.dart';
 
 void main(){
   runApp(new MyApp());
@@ -77,7 +78,12 @@ class MainPage extends StatelessWidget{
             Navigator.push(context, new MaterialPageRoute(builder: (context) => new FirstScreen()));
           },
               color: Colors.blue,
-              child: new Text("EventBus")),
+              child: new Text("EventBusDemo")),
+          new FlatButton(onPressed: (){
+            Navigator.push(context, new MaterialPageRoute(builder: (context) => new SearchBarPage()));
+          },
+              color: Colors.blue,
+              child: new Text("SearchBarDemo")),
         ],
       ),
     );

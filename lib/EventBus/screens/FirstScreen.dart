@@ -15,7 +15,7 @@ class FirstScreen extends StatelessWidget {
         child: new StreamBuilder<CountEvent>(
           stream: behaviorBus.on<CountEvent>(),
             builder:(context,snapshot){
-          return snapshot.hasData
+            return snapshot.hasData
               ? new Text('you pushed the button ${snapshot.data.count} times')
               : Text('waiting for data');
         }),
