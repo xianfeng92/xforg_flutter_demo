@@ -110,7 +110,6 @@ class MainPage extends StatelessWidget{
     );
   }
 
-
   Future<bool> _dialogExitApp(BuildContext context){
     return showDialog(
         context: context,
@@ -123,5 +122,4 @@ class MainPage extends StatelessWidget{
       )
     );
   }
-
 }
