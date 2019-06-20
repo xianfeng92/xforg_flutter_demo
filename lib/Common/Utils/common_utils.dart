@@ -6,7 +6,9 @@ import 'package:xforg_flutter_demo/Common/Style/xforg_string_base.dart';
 import 'package:xforg_flutter_demo/Common/Localization/default_localizations.dart';
 import 'package:xforg_flutter_demo/Common/Utils/navigator_utils.dart';
 import 'package:xforg_flutter_demo/Common/Widget/XforgFlexButton.dart';
-import 'package:xforg_flutter_demo/HomeDrawer/redux/theme_redux.dart';
+import 'package:xforg_flutter_demo/LocalizationAndTheme/redux/locale_redux.dart';
+import 'package:xforg_flutter_demo/LocalizationAndTheme/redux/theme_redux.dart';
+import 'package:xforg_flutter_demo/LocalizationAndTheme/redux/xforg_state.dart';
 
 class CommonUtils {
 
@@ -108,5 +110,20 @@ class CommonUtils {
             ),
           );
         });
+      }
+
+  ///切换语言
+  static changeLocale(Store<XFORGState> store, int index) {
+    Locale locale = store.state.platformLocale;
+    switch (index) {
+      case 1:
+        locale = Locale('zh', 'CH');
+        break;
+      case 2:
+        locale = Locale('en', 'US');
+        break;
+    }
+    store.dispatch(RefreshLocaleAction(locale));
   }
+
 }

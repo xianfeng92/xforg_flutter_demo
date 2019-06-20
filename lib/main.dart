@@ -10,13 +10,17 @@ import 'package:xforg_flutter_demo/SearchBar/SearchBarPage.dart';
 import 'package:xforg_flutter_demo/redux/TopScreen.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:xforg_flutter_demo/HomeDrawer/HomeDrawerPage.dart';
-import 'package:xforg_flutter_demo/HomeDrawer/redux/xforg_state.dart';
+import 'package:xforg_flutter_demo/LocalizationAndTheme/ThemeChangePage.dart';
+import 'package:xforg_flutter_demo/LocalizationAndTheme/redux/xforg_state.dart';
 import 'package:xforg_flutter_demo/Common/Utils/common_utils.dart';
 import 'package:xforg_flutter_demo/Common/Style/xforg_style.dart';
+import 'package:xforg_flutter_demo/Common/Localization/XforgLocalizationsDelegate.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main(){
-  final store = Store<XFORGState>(appReducer,initialState:new XFORGState(CommonUtils.getThemeData(XFORGColors.primarySwatch)));
+  final store = Store<XFORGState>(
+      appReducer,
+      initialState:new XFORGState(CommonUtils.getThemeData(XFORGColors.primarySwatch),Locale('zh', 'CH')));
   runApp(new MyApp(store));
 }
 
@@ -32,12 +36,56 @@ class MyApp extends StatelessWidget {
       store:store,
       child: new StoreBuilder<XFORGState>(builder: (context,store){
         return new MaterialApp(
-          theme: store.state.themeData,
-          home: new MainPage(),
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            XFORGLocalizationsDelegate.delegate,
+          ],
+          locale: store.state.locale,
+          supportedLocales: [store.state.locale],
+          theme:store.state.themeData,
+          home: new XFORGLocalizations(
+            child:pageContainer(new MainPage()),
+          )
         );
       })
     );
   }
+}
+
+class XFORGLocalizations extends StatefulWidget {
+  
+  final Widget child;
+  
+  XFORGLocalizations({Key key,this.child}):super(key:key);
+  
+  @override
+  _XFORGLocalizationsState createState() => _XFORGLocalizationsState();
+}
+
+class _XFORGLocalizationsState extends State<XFORGLocalizations> {
+
+  @override
+  Widget build(BuildContext context) {
+    return new StoreBuilder<XFORGState>(
+        builder: (context,store){
+          return new Localizations.override(
+            context: context,
+            locale: store.state.locale,
+            child: widget.child,
+          );
+        },
+    );
+  }
+}
+
+///Page页面的容器，做一次通用自定义
+Widget pageContainer(widget) {
+return MediaQuery(
+
+///不受系统字体缩放影响
+data: MediaQueryData.fromWindow(WidgetsBinding.instance.window)
+    .copyWith(textScaleFactor: 1), child: widget);
 }
 
 class MainPage extends StatelessWidget{
