@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:xforg_flutter_demo/Tabbar/TabBarBottomPageWidget.dart';
-import 'package:xforg_flutter_demo/Tabbar/TabBarTopPageWidget.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullToRefreshWidge.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullOnLoadingWidge.dart';
 import 'package:xforg_flutter_demo/SplashScreen/SplashScreen.dart';
@@ -100,18 +98,6 @@ class MainPage extends StatelessWidget{
       body: new WillPopScope(
           child:       new Column(
             children: <Widget>[
-              new FlatButton(onPressed:(){
-                Navigator.push(context,new MaterialPageRoute(builder:(context) => new TabBarBottomPageWidget()));
-              },
-                color: Colors.blue,
-                child: new Text("BotTabBar"),
-              ),
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new TabBarTopPageWidget()));
-              },
-                color: Colors.blue,
-                child: new Text("TopTabBar"),
-              ),
               new FlatButton(onPressed: (){
                 Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullToRefreshPage()));
               },
