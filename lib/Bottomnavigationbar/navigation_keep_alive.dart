@@ -7,6 +7,7 @@ import 'package:xforg_flutter_demo/Bottomnavigationbar/pages_keep_alive/pages_sc
 class NavigationKeepAlive extends StatefulWidget {
   @override
   _NavigationKeepAliveState createState() => _NavigationKeepAliveState();
+
 }
 
 class _NavigationKeepAliveState extends State<NavigationKeepAlive> with SingleTickerProviderStateMixin {
@@ -21,7 +22,6 @@ class _NavigationKeepAliveState extends State<NavigationKeepAlive> with SingleTi
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _controller.dispose();
   }

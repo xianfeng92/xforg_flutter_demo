@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xforg_flutter_demo/Bottomnavigationbar/navigation_keep_alive.dart';
+import 'package:xforg_flutter_demo/CustomRouterTransition/pages.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullToRefreshWidge.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullOnLoadingWidge.dart';
 import 'package:xforg_flutter_demo/SplashScreen/SplashScreen.dart';
@@ -14,7 +15,6 @@ import 'package:xforg_flutter_demo/Common/Utils/common_utils.dart';
 import 'package:xforg_flutter_demo/Common/Style/xforg_style.dart';
 import 'package:xforg_flutter_demo/Common/Localization/XforgLocalizationsDelegate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
 
 void main(){
   final store = Store<XFORGState>(
@@ -140,6 +140,11 @@ class MainPage extends StatelessWidget{
               },
                   color: Colors.blue,
                   child: new Text("BottomNavigation")),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new FirstPage()));
+              },
+                  color: Colors.blue,
+                  child: new Text("CustomRouter")),
             ],
           ),
           onWillPop: (){
