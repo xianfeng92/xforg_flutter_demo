@@ -99,71 +99,63 @@ class MainPage extends StatelessWidget{
         title: new Text("Flutter Demo TabBar"),
       ),
       body: new WillPopScope(
-          child: new Column(
-            children: <Widget>[
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullToRefreshPage()));
-              },
-                  color: Colors.blue,
-                  child: new Text("PullToLoad")
-              ),
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullOnLoadingPage()));
-              },
-                  color: Colors.blue,
-                  child: new Text("PullOnLoad")),
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new SplashScreen()));
-              },
-                  color: Colors.blue,
-                  child: new Text("SplashScreen")),
-
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new SpinkitPage()));
-              },
-                  color: Colors.blue,
-                  child: new Text("SpinkitDemo")),
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new FirstScreen()));
-              },
-                  color: Colors.blue,
-                  child: new Text("EventBusDemo")),
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new SearchBarPage()));
-              },
-                  color: Colors.blue,
-                  child: new Text("SearchBarDemo")),
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new HomeDrawerPage()));
-              },
-                  color: Colors.blue,
-                  child: new Text("changeTheme")),
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new NavigationKeepAlive()));
-              },
-                  color: Colors.blue,
-                  child: new Text("BottomNavigation")),
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new FirstPage()));
-              },
-                  color: Colors.blue,
-                  child: new Text("CustomRouter")),
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new ExpansionTileDemo()));
-              },
-                  color: Colors.blue,
-                  child: new Text("ExpansionTile")),
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new SliverScreen()));
-              },
-                  color: Colors.blue,
-                  child: new Text("SliverScreen")),
-              new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new HomePage()));
-              },
-                  color: Colors.blue,
-                  child: new Text("CustomClipper")),
-            ],
+          child: new Center(
+            child: ListView(
+              children: <Widget>[
+                ListTile(
+                  title:Text("PullToLoad") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullToRefreshPage())),
+                ),
+                ListTile(
+                  title:Text("PullOnLoad") ,
+                  onTap: () =>  Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullOnLoadingPage())),
+                ),
+                ListTile(
+                  title:Text("SplashScreen") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new SplashScreen())),
+                ),
+                ListTile(
+                  title:Text("FirstScreen") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new FirstScreen())),
+                ),
+                ListTile(
+                  title:Text("SpinkitPage") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new SpinkitPage())),
+                ),
+                ListTile(
+                  title:Text("SearchBarPage") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new SearchBarPage())),
+                ),
+                ListTile(
+                  title:Text("ChangeTheme") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new HomeDrawerPage())),
+                ),
+                ListTile(
+                  title:Text("BottomNavigation") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new NavigationKeepAlive())),
+                ),
+                ListTile(
+                  title:Text("CustomRouter") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new FirstPage())),
+                ),
+                ListTile(
+                  title:Text("ExpansionTile") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new ExpansionTileDemo())),
+                ),
+                ListTile(
+                  title:Text("SliverScreen") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new SliverScreen())),
+                ),
+                ListTile(
+                  title:Text("CustomClipper") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new HomePage())),
+                ),
+                ListTile(
+                  title:Text("BottomNavigation") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new NavigationKeepAlive())),
+                ),
+              ],
+            ),
           ),
           onWillPop: (){
             return _dialogExitApp(context);
