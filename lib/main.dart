@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xforg_flutter_demo/Bottomnavigationbar/navigation_keep_alive.dart';
+import 'package:xforg_flutter_demo/Clipper/custome_clipper.dart';
 import 'package:xforg_flutter_demo/CustomRouterTransition/pages.dart';
 import 'package:xforg_flutter_demo/Expansion/expansion_title.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullToRefreshWidge.dart';
@@ -157,6 +158,11 @@ class MainPage extends StatelessWidget{
               },
                   color: Colors.blue,
                   child: new Text("SliverScreen")),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new HomePage()));
+              },
+                  color: Colors.blue,
+                  child: new Text("CustomClipper")),
             ],
           ),
           onWillPop: (){
