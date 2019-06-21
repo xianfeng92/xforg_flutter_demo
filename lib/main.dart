@@ -4,6 +4,7 @@ import 'package:xforg_flutter_demo/CustomRouterTransition/pages.dart';
 import 'package:xforg_flutter_demo/Expansion/expansion_title.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullToRefreshWidge.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullOnLoadingWidge.dart';
+import 'package:xforg_flutter_demo/Sliver/sliver_screen.dart';
 import 'package:xforg_flutter_demo/SplashScreen/SplashScreen.dart';
 import 'package:xforg_flutter_demo/Spinkit/SpinkitDemoPage.dart';
 import 'package:xforg_flutter_demo/EventBus/screens/FirstScreen.dart';
@@ -151,6 +152,11 @@ class MainPage extends StatelessWidget{
               },
                   color: Colors.blue,
                   child: new Text("ExpansionTile")),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new SliverScreen()));
+              },
+                  color: Colors.blue,
+                  child: new Text("SliverScreen")),
             ],
           ),
           onWillPop: (){
