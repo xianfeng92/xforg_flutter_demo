@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xforg_flutter_demo/Bottomnavigationbar/navigation_keep_alive.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullToRefreshWidge.dart';
 import 'package:xforg_flutter_demo/PullLoad/PullOnLoadingWidge.dart';
 import 'package:xforg_flutter_demo/SplashScreen/SplashScreen.dart';
@@ -13,7 +14,6 @@ import 'package:xforg_flutter_demo/Common/Utils/common_utils.dart';
 import 'package:xforg_flutter_demo/Common/Style/xforg_style.dart';
 import 'package:xforg_flutter_demo/Common/Localization/XforgLocalizationsDelegate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'Bottomnavigationbar/BottomNavigationWidget.dart';
 
 
 void main(){
@@ -136,7 +136,7 @@ class MainPage extends StatelessWidget{
                   color: Colors.blue,
                   child: new Text("changeTheme")),
               new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new BottomNavigationWidget()));
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new NavigationKeepAlive()));
               },
                   color: Colors.blue,
                   child: new Text("BottomNavigation")),
