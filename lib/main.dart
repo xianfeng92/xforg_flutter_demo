@@ -7,7 +7,6 @@ import 'package:xforg_flutter_demo/SplashScreen/SplashScreen.dart';
 import 'package:xforg_flutter_demo/Spinkit/SpinkitDemoPage.dart';
 import 'package:xforg_flutter_demo/EventBus/screens/FirstScreen.dart';
 import 'package:xforg_flutter_demo/SearchBar/SearchBarPage.dart';
-import 'package:xforg_flutter_demo/redux/TopScreen.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:xforg_flutter_demo/LocalizationAndTheme/ThemeChangePage.dart';
@@ -16,6 +15,8 @@ import 'package:xforg_flutter_demo/Common/Utils/common_utils.dart';
 import 'package:xforg_flutter_demo/Common/Style/xforg_style.dart';
 import 'package:xforg_flutter_demo/Common/Localization/XforgLocalizationsDelegate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'Bottomnavigationbar/BottomNavigationWidget.dart';
+
 
 void main(){
   final store = Store<XFORGState>(
@@ -82,7 +83,6 @@ class _XFORGLocalizationsState extends State<XFORGLocalizations> {
 ///Page页面的容器，做一次通用自定义
 Widget pageContainer(widget) {
 return MediaQuery(
-
 ///不受系统字体缩放影响
 data: MediaQueryData.fromWindow(WidgetsBinding.instance.window)
     .copyWith(textScaleFactor: 1), child: widget);
@@ -145,15 +145,15 @@ class MainPage extends StatelessWidget{
                   color: Colors.blue,
                   child: new Text("SearchBarDemo")),
               new FlatButton(onPressed: (){
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => new TopScreen()));
-              },
-                  color: Colors.blue,
-                  child: new Text("ReduxDemo")),
-              new FlatButton(onPressed: (){
                 Navigator.push(context, new MaterialPageRoute(builder: (context) => new HomeDrawerPage()));
               },
                   color: Colors.blue,
                   child: new Text("changeTheme")),
+              new FlatButton(onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new BottomNavigationWidget()));
+              },
+                  color: Colors.blue,
+                  child: new Text("BottomNavigation")),
             ],
           ),
           onWillPop: (){
