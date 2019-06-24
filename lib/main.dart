@@ -104,59 +104,73 @@ class MainPage extends StatelessWidget{
             child: ListView(
               children: <Widget>[
                 ListTile(
-                  title:Text("PullToLoad") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("PullToLoad",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullToRefreshPage())),
                 ),
                 ListTile(
-                  title:Text("PullOnLoad") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("PullOnLoad",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () =>  Navigator.push(context, new MaterialPageRoute(builder: (context) => new PullOnLoadingPage())),
                 ),
                 ListTile(
-                  title:Text("SplashScreen") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("SplashScreen",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new SplashScreen())),
                 ),
                 ListTile(
-                  title:Text("FirstScreen") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("FirstScreen",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new FirstScreen())),
                 ),
                 ListTile(
-                  title:Text("SpinkitPage") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("SpinkitPage",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new SpinkitPage())),
                 ),
                 ListTile(
-                  title:Text("SearchBarPage") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("SearchBarPage",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new SearchBarPage())),
                 ),
                 ListTile(
-                  title:Text("ChangeTheme") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("ChangeTheme",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new HomeDrawerPage())),
                 ),
                 ListTile(
-                  title:Text("BottomNavigation") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("BottomNavigation",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new NavigationKeepAlive())),
                 ),
                 ListTile(
-                  title:Text("CustomRouter") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("CustomRouter",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new FirstPage())),
                 ),
                 ListTile(
-                  title:Text("ExpansionTile") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("ExpansionTile",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new ExpansionTileDemo())),
                 ),
                 ListTile(
-                  title:Text("SliverScreen") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("SliverScreen",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new SliverScreen())),
                 ),
                 ListTile(
-                  title:Text("CustomClipper") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("CustomClipper",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new HomePage())),
                 ),
                 ListTile(
-                  title:Text("BottomNavigation") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("BottomNavigation",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new NavigationKeepAlive())),
                 ),
                 ListTile(
-                  title:Text("WhatsAppHome") ,
+                  leading:new Icon(Icons.label_outline),
+                  title:Text("WhatsAppHome",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)) ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new WhatsAppHome())),
                 ),
               ],
