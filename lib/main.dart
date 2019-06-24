@@ -18,6 +18,7 @@ import 'package:xforg_flutter_demo/Common/Utils/common_utils.dart';
 import 'package:xforg_flutter_demo/Common/Style/xforg_style.dart';
 import 'package:xforg_flutter_demo/Common/Localization/XforgLocalizationsDelegate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:xforg_flutter_demo/WhatAppClone/whats_app_home.dart';
 
 void main(){
   final store = Store<XFORGState>(
@@ -92,8 +93,8 @@ data: MediaQueryData.fromWindow(WidgetsBinding.instance.window)
 class MainPage extends StatelessWidget{
 
   @override
-  Widget build(BuildContext context) {
     // TODO: implement build
+    Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Flutter Demo TabBar"),
@@ -153,6 +154,10 @@ class MainPage extends StatelessWidget{
                 ListTile(
                   title:Text("BottomNavigation") ,
                   onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new NavigationKeepAlive())),
+                ),
+                ListTile(
+                  title:Text("WhatsAppHome") ,
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new WhatsAppHome())),
                 ),
               ],
             ),
