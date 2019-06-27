@@ -9,7 +9,7 @@ class WhatsAppHome extends StatefulWidget {
   _WhatsAppHomeState createState() => _WhatsAppHomeState();
 }
 
-class _WhatsAppHomeState extends State<WhatsAppHome> with SingleTickerProviderStateMixin {
+class _WhatsAppHomeState extends State<WhatsAppHome> with SingleTickerProviderStateMixin,WidgetsBindingObserver {
 
   TabController _tabController;
 
@@ -18,6 +18,29 @@ class _WhatsAppHomeState extends State<WhatsAppHome> with SingleTickerProviderSt
     // TODO: implement initState
     super.initState();
     _tabController = new TabController(length: 3, vsync: this,initialIndex: 1);
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    WidgetsBinding.instance.removeObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // TODO: implement didChangeAppLifecycleState
+    super.didChangeAppLifecycleState(state);
+    if(state == AppLifecycleState.resumed){
+      print("AppLifecycleState.resumed");
+    }else if (state == AppLifecycleState.paused){
+      print("AppLifecycleState.paused");
+    }else if(state == AppLifecycleState.inactive){
+      print("AppLifecycleState.inactive");
+    }else if (state == AppLifecycleState.suspending){
+      print("AppLifecycleState.suspending");
+    }
   }
 
   @override
